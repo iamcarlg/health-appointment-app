@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Liste des Rendez-vous</h1>
+    
+    <div class="appointments-grid">
+        <div class="appointment-card" *ngFor="let appointment of appointments">
+            <div class="card-header">
+                <span class="appointment-id">#{{appointment.id}}</span>
+                <span class="status-badge" [ngClass]="{
+                    'status-confirmed': appointment.status === 'confirmed',
+                    'status-pending': appointment.status === 'pending',
+                    'status-cancelled': appointment.status === 'cancelled'
+                }">{{appointment.status}}</span>
+            </div>
+            
+            <div class="card-content">
+                <div class="info-group">
+                    <div class="info-label">Patient ID</div>
+                    <div class="info-value">{{appointment.patientId}}</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Hôpital ID</div>
+                    <div class="info-value">{{appointment.hospitalId}}</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Médecin</div>
+                    <div class="info-value">{{appointment.doctorName}}</div>
+                </div>
+                
+                <div class="date-time-group">
+                    <div class="info-label">Date et Heure</div>
+                    <div class="info-value">
+                        {{appointment.appointmentDate}} à {{appointment.appointmentTime}}
+                    </div>
+                </div>
+                
+                <div class="notes-section" *ngIf="appointment.notes">
+                    <div class="info-label">Notes</div>
+                    <div class="notes-content">{{appointment.notes}}</div>
+                </div>
+            </div>
+            
+            <div class="card-actions">
+                <button class="action-btn btn-edit">Modifier</button>
+                <button class="action-btn btn-delete">Supprimer</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="empty-state" *ngIf="appointments.length === 0">
+        <h3>Aucun rendez-vous trouvé</h3>
+        <p>Il n'y a actuellement aucun rendez-vous programmé.</p>
+    </div>
+</div>

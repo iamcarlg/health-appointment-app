@@ -1,0 +1,70 @@
+{
+  "patients": [],
+  "appointments": [
+    {
+      "id": "1",
+      "patientId": 1,
+      "hospitalId": 1,
+      "appointmentDate": "2024-01-15",
+      "appointmentTime": "10:00",
+      "status": "SCHEDULED",
+      "doctorName": "Dr. Wilson",
+      "notes": "Regular checkup"
+    },
+    {
+      "id": "2",
+      "patientId": 2,
+      "hospitalId": 1,
+      "appointmentDate": "2024-01-16",
+      "appointmentTime": "14:30",
+      "status": "CONFIRMED",
+      "doctorName": "Dr. Brown",
+      "notes": "Follow-up appointment"
+    }
+  ],
+  "hospitals": [
+    {
+      "id": "1",
+      "name": "City General Hospital",
+      "address": "100 Hospital Dr, City",
+      "phone": "555-000-1000",
+      "email": "info@cityhospital.com",
+      "website": "www.cityhospital.com",
+      "isActive": true
+    },
+    {
+      "id": "2",
+      "name": "Community Medical Center",
+      "address": "200 Health Ave, Town",
+      "phone": "555-000-2000",
+      "email": "contact@communitymed.com",
+      "website": "www.communitymed.com",
+      "isActive": true
+    },
+    {
+      "id": "4679",
+      "name": "Carl Gauss",
+      "address": "Rugero",
+      "email": "rugerocarlgauss@gmail.com",
+      "phone": "0626387434"
+    },
+    {
+      "id": "0d01",
+      "name": "Carl Gauss Rugero",
+      "address": "14 Bis Avenue Stalingrad",
+      "email": "rugerocarlgauss@gmail.com",
+      "phone": "68814935"
+    }
+  ],
+  "users": [
+    {
+      "id": "f857",
+      "lastName": "Carl Gauss Rugero",
+      "firstName": "Carl Gauss Rugero",
+      "role": "14 Bis Avenue Stalingrad",
+      "email": "rugerocarlgauss@gmail.com",
+      "phone": "0626387434",
+      "isActive": "Actif"
+    }
+  ]
+}

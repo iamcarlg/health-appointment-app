@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>List of Patients</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of patientList">
+                        <td>{{patient.id}}</td>
+                        <td>{{patient.firstName}} {{patient.lastName}}</td>
+                        <td>{{patient.email}}</td>
+                        <td>{{patient.phone}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="onEdit(patient.id)">Modifier</button>
+                            <button class="btn btn-secondary" (click)="onDelete(patient.id)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="empty-state" *ngIf="patientList.length === 0">
+        <h3>Aucun patient trouvé</h3>
+        <p>Il n'y a actuellement aucun patient enregistré.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{{ isEditing ? 'Modifier le patient' : 'Ajouter un nouveau patient' }}</h2>
+
+            <form>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required [(ngModel)]="patient.firstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required [(ngModel)]="patient.lastName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="patient.email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="patient.phone">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+                        {{ isEditing ? 'Mettre à jour' : 'Ajouter' }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" (click)="resetForm()" *ngIf="isEditing">
+                        Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

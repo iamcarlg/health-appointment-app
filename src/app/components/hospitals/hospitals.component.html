@@ -1,0 +1,72 @@
+<div class="container">
+    <h1>Liste des Hôpitaux</h1>
+    
+    <div class="hospitals-grid">
+        <div class="hospital-card" *ngFor="let hospital of hospitals">
+            <div class="card-header">
+                <span class="hospital-id">#{{hospital.id}}</span>
+                <h3 class="hospital-name">{{hospital.name}}</h3>
+            </div>
+            
+            <div class="card-content">
+                <div class="info-group">
+                    <div class="info-icon address"></div>
+                    <div class="info-content">
+                        <div class="info-label">Adresse</div>
+                        <div class="info-value">{{hospital.address}}</div>
+                    </div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-icon phone"></div>
+                    <div class="info-content">
+                        <div class="info-label">Téléphone</div>
+                        <div class="info-value">{{hospital.phone}}</div>
+                    </div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-icon email"></div>
+                    <div class="info-content">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">{{hospital.email}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-actions">
+                <button class="action-btn btn-view">Voir</button>
+                <button class="action-btn btn-edit">Modifier</button>
+                <button class="action-btn btn-delete">Supprimer</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="empty-state" *ngIf="hospitals.length === 0">
+        <h3>Aucun hôpital trouvé</h3>
+        <p>Il n'y a actuellement aucun hôpital enregistré.</p>
+    </div>
+
+    <div class="form-section">
+        <h2>Ajouter un Nouvel Hôpital</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Nom de l'Hôpital</label>
+                <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="hospital.name">
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" class="form-control" id="address" name="address" required [(ngModel)]="hospital.address">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="hospital.email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="hospital.phone">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Ajouter l'Hôpital</button>
+        </form>
+    </div>
+</div>
