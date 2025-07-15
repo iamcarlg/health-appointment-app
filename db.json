@@ -17,24 +17,13 @@
   ],
   "appointments": [
     {
-      "id": "1",
-      "patientId": 1,
-      "hospitalId": 1,
-      "appointmentDate": "2024-01-15",
-      "appointmentTime": "10:00",
-      "status": "SCHEDULED",
-      "doctorName": "Dr. Wilson",
-      "notes": "Regular checkup"
+      "id": "1"
     },
     {
-      "id": "2",
-      "patientId": 2,
-      "hospitalId": 1,
-      "appointmentDate": "2024-01-16",
-      "appointmentTime": "14:30",
-      "status": "CONFIRMED",
-      "doctorName": "Dr. Brown",
-      "notes": "Follow-up appointment"
+      "id": "2"
+    },
+    {
+      "id": "985b"
     }
   ],
   "hospitals": [

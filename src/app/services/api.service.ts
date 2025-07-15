@@ -84,7 +84,7 @@ export class ApiService {
   updateUser(id: number, user: User) : Observable <User> {
     return this.http.put <User>(`${this.apiUrl}/users/${id}`, user);
   }
-  
+
   // Delete an existing user
   deleteUser(id: number) : Observable <void> {
     return this.http.delete <void> (`${this.apiUrl}/users/${id}`);
@@ -95,11 +95,23 @@ export class ApiService {
     return this.http.get<Appointment[]>(`${this.apiUrl}/appointments`);
   }
 
-  // getUserById(id: number): Observable<User> {}
+  // Get appointments by Id
+  getAppointmentById(id :number) : Observable <Appointment> {
+    return this.http.get<Appointment>(`${this.apiUrl}/appointments/${id}`);
+  }
 
-  // getHospitalById(id: number): Observable<Hospital> {}
+  // Add a new appointment
+  addAppointment(appointment : Appointment) : Observable <Appointment> {
+    return this.http.post <Appointment> (`${this.apiUrl}/appointments`, appointment);
+  }
 
-  // getPatientById(id: number): Observable<Patients> {}
+  // Update Appointment Info by Id
+  updateAppointment(id: number, appointment: Appointment) : Observable <Appointment> {
+    return this.http.put <Appointment>(`${this.apiUrl}/appointments/${id}`, appointment);
+  }
 
-  // getAppointmentById(id: number): Observable<Appointments> {}
+  // Delete Appointment Info by Id
+  deleteAppointment(id: number) : Observable <void> {
+    return this.http.delete<void> (`${this.apiUrl}/appointments/${id}`);
+  }
 }
