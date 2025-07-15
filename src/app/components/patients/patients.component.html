@@ -28,15 +28,9 @@
         </div>
     </div>
 
-
-    <div class="empty-state" *ngIf="patientList.length === 0">
-        <h3>Aucun patient trouvé</h3>
-        <p>Il n'y a actuellement aucun patient enregistré.</p>
-    </div>
     <div class="row">
         <div class="col-md-12">
             <h2>{{ isEditing ? 'Modifier le patient' : 'Ajouter un nouveau patient' }}</h2>
-
             <form>
                 <div class="form-group">
                     <label for="firstName">Prénom</label>

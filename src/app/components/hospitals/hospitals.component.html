@@ -36,8 +36,8 @@
             
             <div class="card-actions">
                 <button class="action-btn btn-view">Voir</button>
-                <button class="action-btn btn-edit">Modifier</button>
-                <button class="action-btn btn-delete">Supprimer</button>
+                <button class="action-btn btn-edit" (click)="onEdit(hospital.id)">Modifier</button>
+                <button class="action-btn btn-delete" (click)="onDelete(hospital.id)">Supprimer</button>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-section">
-        <h2>Ajouter un Nouvel Hôpital</h2>
+        <h2>{{isEditing ? 'Modifier le Hôpital' : 'Ajouter un Nouvel Hôpital'}}</h2>
         <form>
             <div class="form-group">
                 <label for="name">Nom de l'Hôpital</label>
@@ -66,7 +66,7 @@
                 <label for="phone">Téléphone</label>
                 <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="hospital.phone">
             </div>
-            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Ajouter l'Hôpital</button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">{{isEditing ? 'Modifier un hôpital' : 'Ajouter un hôpital'}}</button>
         </form>
     </div>
 </div>

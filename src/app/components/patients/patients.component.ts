@@ -40,7 +40,7 @@ export class PatientsComponent implements OnInit{
       // Update existing patient
       this.apiService.updatePatient(this.editingPatientId, this.patient).subscribe({
         next: (data) => {
-          console.log("Patient updated successfully");
+          console.log("Patient updated successfully", data);
           this.resetForm();
           this.loadPatients();
         },
@@ -78,7 +78,7 @@ export class PatientsComponent implements OnInit{
 
   onDelete(id: number){
     this.apiService.deletePatient(id).subscribe({
-      next : (data) => {
+      next : () => {
         this.patientList = this.patientList.filter(patient => patient.id !== id);
       },
       error : (error) => {

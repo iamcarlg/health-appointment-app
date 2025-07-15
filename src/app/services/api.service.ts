@@ -39,10 +39,25 @@ export class ApiService {
   deletePatient(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/patients/${id}`);
   }
-  
+
   // Get all hospitals
   getHospitals(): Observable<Hospital[]> {
     return this.http.get<Hospital[]>(`${this.apiUrl}/hospitals`);
+  }
+
+    // Get a hospital by id
+  getHospitalById(id: number): Observable<Hospital> {
+    return this.http.get<Hospital>(`${this.apiUrl}/hospitals/${id}`);
+  }
+
+  // update hospital Information
+  updateHospital(id: number, hospital : Hospital): Observable<Hospital> {
+    return this.http.put<Hospital>(`${this.apiUrl}/hospitals/${id}`, hospital);
+  }
+
+  // Delete Hospital Information
+  deleteHospital(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/hospitals/${id}`);
   }
 
   // Add new Hospital to the list
@@ -55,9 +70,24 @@ export class ApiService {
     return this.http.get<User[]>(`${this.apiUrl}/users`);
   }
 
+  // Get a user by Id
+  getUserById(id: number): Observable<User>{
+    return this.http.get<User>(`${this.apiUrl}/users/${id}`);
+  }
+
   // Add a new user
   addUser(user : User): Observable <User> {
     return this.http.post <User> (`${this.apiUrl}/users`, user);
+  }
+
+  // Update an existing user
+  updateUser(id: number, user: User) : Observable <User> {
+    return this.http.put <User>(`${this.apiUrl}/users/${id}`, user);
+  }
+  
+  // Delete an existing user
+  deleteUser(id: number) : Observable <void> {
+    return this.http.delete <void> (`${this.apiUrl}/users/${id}`);
   }
 
   // Get all appointments
